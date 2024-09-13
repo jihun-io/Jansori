@@ -1,9 +1,14 @@
 import localFont from "next/font/local";
+import dynamic from "next/dynamic";
 import "./globals.css";
 
 import Header from "@/components/header.js";
 import Footer from "@/components/footer.js";
-import CartBtn from "@/components/cart-button.js";
+
+const CartBtn = dynamic(() => import("@/components/cart-button.js"), {
+  ssr: false,
+});
+
 import { ProductProvider } from "/contexts/ProductContext";
 import classNames from "classnames";
 
