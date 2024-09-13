@@ -20,17 +20,15 @@ export default function CartBtn({ font }) {
   const [qrData, setQrData] = useState("");
   const [purchase, setPurchase] = useState(false);
 
+  const pathname = usePathname();
+
+  const searchParams = useSearchParams();
+  const { checkedItems, getCheckedProducts } = useProduct();
   const toHexValue = (value) => {
     const multipliedValue = value * 524288;
     return Math.floor(multipliedValue).toString(16);
   };
 
-  const pathname = usePathname();
-  if (pathname !== "/buy") {
-    return null;
-  }
-
-  const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
   const openModal = () => setIsOpen(true);
@@ -39,13 +37,14 @@ export default function CartBtn({ font }) {
     setPurchase(false);
   };
 
-  if (isOpen) {
-    document.body.style.overflow = "hidden";
-  } else {
-    document.body.style.overflow = "auto";
-  }
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+  }, [isOpen]);
 
-  const { checkedItems, getCheckedProducts } = useProduct();
   const checkedCount = Object.values(checkedItems).filter(Boolean).length;
   const checkedProducts = getCheckedProducts();
 
@@ -64,8 +63,9 @@ export default function CartBtn({ font }) {
       setQrData(token);
     } else {
       const hexAmount = toHexValue(amount);
-      setKakaoUrl(`${token}${hexAmount}`);
-      setQrData(kakaoUrl);
+      const newKakaoUrl = `${token}${hexAmount}`;
+      setKakaoUrl(newKakaoUrl);
+      setQrData(newKakaoUrl);
     }
   }, [checkedProducts, token]);
 
@@ -77,6 +77,9 @@ export default function CartBtn({ font }) {
   const random = Math.floor(Math.random() * thanks.length);
   const randomThanks = thanks[random];
 
+  if (pathname !== "/buy") {
+    return null;
+  }
   return (
     <>
       <div className="btn-container fixed right-8 bottom-28 ">
