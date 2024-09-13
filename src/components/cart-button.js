@@ -9,8 +9,11 @@ import { useProduct } from "/contexts/ProductContext";
 import { usePathname } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
+// import { useToHexValue } from "@/utils/toHexValue.js";
+
 import classNames from "classnames";
 import QRCode from "react-qr-code";
+import { useToHexValue } from "../../utils/toHexValue";
 
 const billStyle = "flex flex-col gap-3 max-w-96";
 
@@ -19,15 +22,12 @@ export default function CartBtn({ font }) {
   const [kakaoUrl, setKakaoUrl] = useState("");
   const [qrData, setQrData] = useState("");
   const [purchase, setPurchase] = useState(false);
+  const [hexResult, setHexResult] = useState("");
 
   const pathname = usePathname();
 
   const searchParams = useSearchParams();
   const { checkedItems, getCheckedProducts } = useProduct();
-  const toHexValue = (value) => {
-    const multipliedValue = value * 524288;
-    return Math.floor(multipliedValue).toString(16);
-  };
 
   const token = searchParams.get("token");
 
@@ -54,6 +54,8 @@ export default function CartBtn({ font }) {
     setPurchase(true);
   };
 
+  const toHexValue = useToHexValue();
+
   useEffect(() => {
     const amount = checkedProducts.reduce(
       (acc, cur) => acc + parseInt(cur.price),
@@ -63,7 +65,9 @@ export default function CartBtn({ font }) {
       setQrData(token);
     } else {
       const hexAmount = toHexValue(amount);
-      const newKakaoUrl = `${token}${hexAmount}`;
+      setHexResult(hexAmount);
+      const newKakaoUrl = `${token}${hexResult}`;
+      console.log(newKakaoUrl);
       setKakaoUrl(newKakaoUrl);
       setQrData(newKakaoUrl);
     }
