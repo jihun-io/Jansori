@@ -5,7 +5,7 @@ import classNames from "classnames";
 
 export default function Header({ className }) {
   const defaultClasses =
-    "flex flex-col items-center justify-center text-4xl font-bold px-8 py-12";
+    "flex flex-col items-center justify-center text-3xl sm:text-4xl md:text-5xl font-bold px-8 py-12 whitespace-nowrap";
 
   return (
     <header className={classNames(defaultClasses, className)}>
