@@ -62,9 +62,13 @@ export default function CartBtn({ font }) {
       (acc, cur) => acc + parseInt(cur.price),
       0
     );
-    const hexAmount = toHexValue(amount);
-    setKakaoUrl(`${token}${hexAmount}`);
-    setQrData(kakaoUrl);
+    if (token === "https://dev.jihun.io") {
+      setQrData(token);
+    } else {
+      const hexAmount = toHexValue(amount);
+      setKakaoUrl(`${token}${hexAmount}`);
+      setQrData(kakaoUrl);
+    }
   }, [checkedProducts, token]);
 
   const thanks = [
