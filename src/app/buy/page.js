@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import dynamic from "next/dynamic";
 import { redirect } from "next/navigation";
 
+export const runtime = "edge";
+
 const BuyDetails = dynamic(() => import("./buyDetails"), {
   ssr: false,
 });

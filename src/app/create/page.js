@@ -1,6 +1,8 @@
 import { Suspense } from "react";
 import dynamic from "next/dynamic";
 
+export const runtime = "edge";
+
 const CreativeDetails = dynamic(() => import("@/app/create/createDetails.js"), {
   ssr: false,
 });
