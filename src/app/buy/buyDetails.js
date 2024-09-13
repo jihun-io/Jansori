@@ -1,23 +1,19 @@
 "use client";
 
 import { useSearchParams } from "next/navigation";
-
-import Image from "next/image";
-import { useState } from "react";
 import { useProduct } from "/contexts/ProductContext";
 import ProductItem from "@/components/product.js";
 
 export default function BuyDetails({ token, name }) {
+  const { products, checkedItems, handleCheckboxChange } = useProduct();
   const searchParams = useSearchParams();
 
-  // 서버에서 전달받은 props가 없는 경우, 클라이언트에서 가져옵니다
   const clientToken = token || searchParams.get("token");
   const clientName = name || searchParams.get("name");
 
   if (!clientToken || !clientName) {
     return <div>Invalid parameters</div>;
   }
-  const { products, checkedItems, handleCheckboxChange } = useProduct();
 
   const renderProductItems = (categoryProducts) => {
     return categoryProducts.map((product) => (
