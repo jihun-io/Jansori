@@ -15,6 +15,11 @@ import QRCode from "react-qr-code";
 const billStyle = "flex flex-col gap-3 max-w-96";
 
 export default function CartBtn({ font }) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [kakaoUrl, setKakaoUrl] = useState("");
+  const [qrData, setQrData] = useState("");
+  const [purchase, setPurchase] = useState(false);
+
   const toHexValue = (value) => {
     const multipliedValue = value * 524288;
     return Math.floor(multipliedValue).toString(16);
@@ -25,11 +30,6 @@ export default function CartBtn({ font }) {
     return null;
   }
 
-  const [isOpen, setIsOpen] = useState(false);
-
-  const [kakaoUrl, setKakaoUrl] = useState("");
-
-  const [qrData, setQrData] = useState("");
   const searchParams = useSearchParams();
   const token = searchParams.get("token");
 
@@ -48,8 +48,6 @@ export default function CartBtn({ font }) {
   const { checkedItems, getCheckedProducts } = useProduct();
   const checkedCount = Object.values(checkedItems).filter(Boolean).length;
   const checkedProducts = getCheckedProducts();
-
-  const [purchase, setPurchase] = useState(false);
 
   const buyJansori = () => {
     const modalContent = document.getElementById("modalContent");
