@@ -1,11 +1,16 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
+import { useEffect, useState } from "react";
 
 export default function Home() {
-  const url = new URL(window.location.href);
-  const origin = url.origin;
-  const demoLink = `${origin}/buy?name=jihun&token=https://dev.jihun.io`;
+  const [demoLink, setDemoLink] = useState("");
+  useEffect(() => {
+    const url = new URL(window.location.href);
+    const origin = url.origin;
+    const demoUrl = `${origin}/buy?name=jihun&token=https://dev.jihun.io`;
+    setDemoLink(demoUrl);
+  }, []);
 
   return (
     <main className="flex flex-col gap-16 justify-start mx-6">
