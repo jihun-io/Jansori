@@ -78,7 +78,7 @@ export default function CreateDetails() {
                 placeholder="카카오페이 송금 링크"
                 required
               />
-              <Button type="submit">생성</Button>
+              <Button type="submit">링크 만들기</Button>
             </form>
           </section>
           <section>
@@ -99,8 +99,8 @@ export default function CreateDetails() {
                 카카오페이 송금 링크를 붙여 넣어요.
               </li>
               <li>
-                &apos;생성&apos; 버튼을 누르면 나만의 잔소리 키오스크 링크가
-                만들어집니다!
+                &apos;링크 만들기&apos; 버튼을 누르면 나만의 잔소리 키오스크
+                링크가 만들어집니다!
               </li>
             </ol>
             <h3 className="text-xl font-bold">참고 사항</h3>
@@ -122,7 +122,7 @@ export default function CreateDetails() {
           <section className="flex flex-col items-center gap-4">
             <h2 className="text-center font-bold text-2xl">생성 완료!</h2>
             <input
-              className="border-2 rounded-lg px-6 py-2 w-full"
+              className="border-2 rounded-lg px-6 py-2 w-full bg-gray-50 dark:bg-gray-800"
               type="url"
               name="generatedUrl"
               id="generatedUrl"
@@ -130,25 +130,30 @@ export default function CreateDetails() {
               onClick={(e) => e.target.select()}
               readOnly
             />
-            <ul className="flex flex-row gap-8">
+            <ul className="flex flex-row gap-x-8 gap-y-4 justify-center flex-wrap">
               <li>
                 <Button onClick={copyToClipboard}>복사하기</Button>
               </li>
               <li>
-                <Button>카카오톡으로 공유</Button>
+                <Button>카카오톡으로 공유 (준비 중)</Button>
               </li>
               <li>
-                <Button>직접 방문하기...</Button>
+                <Link
+                  className="block dark:text-black font-bold transition-colors rounded-lg px-6 py-1 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
+                  href={link}
+                >
+                  직접 방문하기...
+                </Link>{" "}
               </li>
             </ul>
-            <p>
+            <p className="text-center">
               위의 링크를 전달하거나 직접 방문해서 잔소리 키오스크를 사용하실 수
               있습니다!
             </p>
           </section>
           <section className="flex flex-col items-center gap-4">
             <Link
-              className=" dark:text-black border-gray-300 px-8 py-2 rounded-md"
+              className="block dark:text-black font-bold transition-colors rounded-lg px-6 py-1 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
               href="/"
             >
               <h2>처음으로 이동하기...</h2>
