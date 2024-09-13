@@ -12,7 +12,7 @@ export default function Home() {
       <section className="introduction">
         <h2 className="sr-only">소개</h2>
         <p className="text-2xl break-keep font-bold text-center">
-          "참을 인(忍)도 쓰면 돈이 됩니다!"
+          &quot;참을 인(忍)도 쓰면 돈이 됩니다!&quot;
         </p>
         <p className="my-4">
           민족의 대명절 추석이 다가오는데, 전혀 즐겁지 않으시다고요?

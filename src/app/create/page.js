@@ -85,20 +85,22 @@ export default function Create() {
             <h3 className="text-xl font-bold">만드는 법</h3>
             <ol className="flex flex-col gap-y-2 mt-2 mb-6 list-decimal ml-5">
               <li>
-                카카오톡의 '더보기' 탭에서 카카오페이 아이콘 밑의 '송금' 버튼을
+                카카오톡의 &apos;더보기&apos; 탭에서 카카오페이 아이콘 밑의
+                &apos;송금&apos; 버튼을 눌러요.
+              </li>
+              <li>계좌송금 화면에서 하단의 &apos;QR&apos; 버튼을 눌러요.</li>
+              <li>
+                QR 코드 스캔 화면에서 하단의 &apos;나의 송금코드&apos; 버튼을
                 눌러요.
               </li>
-              <li>계좌송금 화면에서 하단의 'QR' 버튼을 눌러요.</li>
-              <li>
-                QR 코드 스캔 화면에서 하단의 '나의 송금코드' 버튼을 눌러요.
-              </li>
-              <li>송금받기 화면에서 '링크 복사' 버튼을 눌러요.</li>
+              <li>송금받기 화면에서 &apos;링크 복사&apos; 버튼을 눌러요.</li>
               <li>
                 잔소리 키오스크로 돌아 와서 이 페이지 하단에 이름을 작성하고,
                 카카오페이 송금 링크를 붙여 넣어요.
               </li>
               <li>
-                '생성' 버튼을 누르면 나만의 잔소리 키오스크 링크가 만들어집니다!
+                &apos;생성&apos; 버튼을 누르면 나만의 잔소리 키오스크 링크가
+                만들어집니다!
               </li>
             </ol>
             <h3 className="text-xl font-bold">참고 사항</h3>
