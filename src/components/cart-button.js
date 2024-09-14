@@ -9,8 +9,6 @@ import { useProduct } from "/contexts/ProductContext";
 import { usePathname } from "next/navigation";
 import { useSearchParams } from "next/navigation";
 
-// import { useToHexValue } from "@/utils/toHexValue.js";
-
 import classNames from "classnames";
 import QRCode from "react-qr-code";
 import { useToHexValue } from "../../utils/toHexValue";
@@ -67,9 +65,8 @@ export default function CartBtn({ font }) {
       const hexAmount = toHexValue(amount);
       setHexResult(hexAmount);
       const newKakaoUrl = `${token}${hexResult}`;
-      console.log(newKakaoUrl);
       setKakaoUrl(newKakaoUrl);
-      setQrData(newKakaoUrl);
+      setQrData(kakaoUrl);
     }
   }, [checkedProducts, token]);
 
@@ -120,7 +117,7 @@ export default function CartBtn({ font }) {
         <dialog className="text-[1rem] fixed w-dvw h-dvh inset-0 bg-white dark:bg-armadillo-800 bg-opacity-50 dark:bg-opacity-30 flex items-center justify-center overflow-hidden z-50 transition-opacity">
           <div
             id="modalContent"
-            className="bg-white dark:bg-armadillo-600 dark:text-armadillo-50 w-4/5 sm:w-3/5 md:w-2/5 px-8 py-8 rounded-lg flex flex-col justify-start gap-y-4 shadow-md relative max-h-[80%] overflow-scroll"
+            className="bg-white dark:bg-armadillo-600 dark:text-armadillo-50 w-4/5 sm:w-3/5 md:w-2/5 px-8 py-8 rounded-lg flex flex-col justify-start gap-y-4 shadow-md relative max-h-[80%] overflow-scroll scrollbar-hide"
           >
             <header className="flex flex-row ">
               <h2 className="w-full text-center font-bold px-8 text-xl">
@@ -158,7 +155,7 @@ export default function CartBtn({ font }) {
                 </p>
                 <Link
                   className=" dark:text-black size-fit ml-auto mr-auto block font-bold transition-colors rounded-lg px-6 py-2 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
-                  href={token}
+                  href={kakaoUrl}
                   target="_blank"
                 >
                   송금하기
