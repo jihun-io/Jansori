@@ -56,7 +56,7 @@ export default function CreateDetails() {
                 이름
               </label>
               <input
-                className="border-2 rounded-lg px-6 py-2 w-full bg-gray-50 dark:bg-gray-800"
+                className="border-2 rounded-lg px-6 py-2 w-full bg-gray-50 dark:bg-slate-900"
                 type="text"
                 id="username"
                 name="username"
@@ -69,7 +69,7 @@ export default function CreateDetails() {
                 카카오페이 송금 링크
               </label>
               <input
-                className="border-2 rounded-lg px-6 py-2  w-full bg-gray-50 dark:bg-gray-800"
+                className="border-2 rounded-lg px-6 py-2  w-full bg-gray-50 dark:bg-slate-900"
                 type="url"
                 id="kakaopay"
                 name="kakaopay"
@@ -85,22 +85,34 @@ export default function CreateDetails() {
             <h3 className="text-xl font-bold">만드는 법</h3>
             <ol className="flex flex-col gap-y-2 mt-2 mb-6 list-decimal ml-5">
               <li>
-                카카오톡의 &apos;더보기&apos; 탭에서 카카오페이 아이콘 밑의
-                &apos;송금&apos; 버튼을 눌러요.
-              </li>
-              <li>계좌송금 화면에서 하단의 &apos;QR&apos; 버튼을 눌러요.</li>
-              <li>
-                QR 코드 스캔 화면에서 하단의 &apos;나의 송금코드&apos; 버튼을
+                카카오톡의 &apos;
+                <span className="font-bold underline">더보기</span>&apos; 탭에서
+                카카오페이 아이콘 밑의 &apos;
+                <span className="font-bold underline">송금</span>&apos; 버튼을
                 눌러요.
               </li>
-              <li>송금받기 화면에서 &apos;링크 복사&apos; 버튼을 눌러요.</li>
+              <li>
+                계좌송금 화면에서 하단의 &apos;
+                <span className="font-bold underline">QR</span>&apos; 버튼을
+                눌러요.
+              </li>
+              <li>
+                QR 코드 스캔 화면에서 하단의 &apos;
+                <span className="font-bold underline">나의 송금코드</span>&apos;
+                버튼을 눌러요.
+              </li>
+              <li>
+                송금받기 화면에서 &apos;
+                <span className="font-bold underline">링크 복사</span>&apos;
+                버튼을 눌러요.
+              </li>
               <li>
                 잔소리 키오스크로 돌아 와서 이 페이지 하단에 이름을 작성하고,
                 카카오페이 송금 링크를 붙여 넣어요.
               </li>
               <li>
-                &apos;링크 만들기&apos; 버튼을 누르면 나만의 잔소리 키오스크
-                링크가 만들어집니다!
+                &apos;<span className="font-bold underline">링크 만들기</span>
+                &apos; 버튼을 누르면 나만의 잔소리 키오스크 링크가 만들어집니다!
               </li>
             </ol>
             <h3 className="text-xl font-bold">참고 사항</h3>
@@ -139,7 +151,7 @@ export default function CreateDetails() {
               </li>
               <li>
                 <Link
-                  className="block dark:text-black font-bold transition-colors rounded-lg px-6 py-1 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
+                  className="block dark:text-black font-bold transition-colors rounded-lg px-6 py-2 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
                   href={link}
                 >
                   직접 방문하기...
@@ -153,7 +165,7 @@ export default function CreateDetails() {
           </section>
           <section className="flex flex-col items-center gap-4">
             <Link
-              className="block dark:text-black font-bold transition-colors rounded-lg px-6 py-1 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
+              className="block dark:text-black font-bold transition-colors rounded-lg px-6 py-2 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
               href="/"
             >
               <h2>처음으로 이동하기...</h2>
