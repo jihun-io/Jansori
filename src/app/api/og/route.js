@@ -7,13 +7,30 @@ export const size = {
   height: 630,
 };
 
+const getUrl = () => {
+  if (process.env.CF_PAGES) {
+    // Cloudflare Pages 환경
+    if (process.env.CF_PAGES_BRANCH === "main") {
+      // 프로덕션 배포
+      return `https://jansori.jihun.io`;
+    } else {
+      // 프리뷰 배포
+      return `${process.env.CF_PAGES_URL}`;
+    }
+  }
+  // 로컬 개발 환경
+  return `http://localhost:${process.env.PORT || 3000}`;
+};
+
 export async function GET(request) {
   const { searchParams } = new URL(request.url);
   const username = searchParams.get("name") || "저";
 
+  const url = getUrl();
+
   try {
     const fontData = await fetch(
-      new URL("../../fonts/chungjuKimsaeng.ttf", import.meta.url)
+      new URL(`${url}/fonts/chungjuKimsaeng.ttf`, import.meta.url)
     ).then((res) => res.arrayBuffer());
 
     return new ImageResponse(
