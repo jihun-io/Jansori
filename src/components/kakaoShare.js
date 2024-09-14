@@ -15,7 +15,7 @@ const sendMessage = async ({ username, token }) => {
       title: "잔소리 키오스크",
       description:
         "그간 무료로 제공되었던 저에 대한 걱정은 올해부터 유료로 전환되었으니 선결제 후 이용 부탁드립니다 🙏",
-      imageUrl: `https://jansori.jihun.io/api/og?name=${username}`,
+      imageUrl: `https://jansori.jihun.io/api/kakao?name=${username}`,
       link: {
         mobileWebUrl: `https://jansori.jihun.io/buy?name=${username}&token=${token}`,
         webUrl: `https://jansori.jihun.io/buy?name=${username}&token=${token}`,
