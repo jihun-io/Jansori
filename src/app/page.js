@@ -1,16 +1,8 @@
-"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect, useState } from "react";
 
 export default function Home() {
-  const [demoLink, setDemoLink] = useState("");
-  useEffect(() => {
-    const url = new URL(window.location.href);
-    const origin = url.origin;
-    const demoUrl = `${origin}/buy?name=jihun&token=https://dev.jihun.io`;
-    setDemoLink(demoUrl);
-  }, []);
+  const demoUrl = `/buy?name=jihun&token=https://dev.jihun.io`;
 
   return (
     <main className="flex flex-col gap-16 justify-start mx-6">
@@ -61,7 +53,7 @@ export default function Home() {
           <li>
             <Link
               className="block dark:text-black font-bold transition-colors rounded-lg px-6 py-2 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
-              href={demoLink}
+              href={demoUrl}
             >
               데모
             </Link>
