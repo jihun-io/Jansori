@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useState, useEffect } from "react";
 
 import Button from "@/components/button.js";
+import KakaoShare from "@/components/kakaoShare";
 
 export default function CreateDetails() {
   const [formData, setFormData] = useState({
@@ -12,6 +13,8 @@ export default function CreateDetails() {
   });
 
   const [link, setLink] = useState("");
+  const [username, setUserName] = useState("");
+  const [token, setToken] = useState("");
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,6 +27,8 @@ export default function CreateDetails() {
   const handleSubmit = (e) => {
     e.preventDefault();
     const { username, kakaopay } = formData;
+    setUserName(username);
+    setToken(kakaopay);
     const url = new URL(window.location.href);
     const origin = url.origin;
     const link = `${origin}/buy?name=${username}&token=${kakaopay}`;
@@ -147,7 +152,9 @@ export default function CreateDetails() {
                 <Button onClick={copyToClipboard}>복사하기</Button>
               </li>
               <li>
-                <Button>카카오톡으로 공유 (준비 중)</Button>
+                <KakaoShare username={username} token={token}>
+                  카카오톡으로 공유하기
+                </KakaoShare>
               </li>
               <li>
                 <Link
