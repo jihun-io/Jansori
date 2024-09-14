@@ -41,7 +41,7 @@ export default function BuyDetails({ token, name }) {
         </p>
       </section>
       <section className="w-full pb-4">
-        <h2 className="text-3xl font-bold text-center my-4">베스트</h2>
+        <h2 className="text-3xl font-bold text-center my-4">베스트셀러</h2>
         <ul className="flex flex-col items-center gap-6">
           {renderProductItems(products.bestProducts)}
         </ul>
@@ -77,7 +77,7 @@ export default function BuyDetails({ token, name }) {
       </section>
 
       <section className="w-full pb-4">
-        <h2 className="text-3xl font-bold text-center my-4">기혼</h2>
+        <h2 className="text-3xl font-bold text-center my-4">신혼 부부</h2>
         <ul className="flex flex-col items-center gap-6">
           {renderProductItems(products.marriedProducts)}
         </ul>
