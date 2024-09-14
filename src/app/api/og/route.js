@@ -11,7 +11,7 @@ const getUrl = () => {
   if (process.env.CF_PAGES) {
     return process.env.CF_PAGES_BRANCH === "main"
       ? "https://jansori.jihun.io"
-      : `https://${process.env.CF_PAGES_URL}`;
+      : `${process.env.CF_PAGES_URL}`;
   }
   return `http://localhost:${process.env.PORT || 3000}`;
 };
