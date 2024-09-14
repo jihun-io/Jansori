@@ -71,7 +71,7 @@ export default function CartBtn({ font }) {
   }, [checkedProducts, token]);
 
   const thanks = [
-    ["잔소리의 품격, 현금으로 증명해주셔서 감사합니다."],
+    ["잔소리의 품격, 현금으로 증명해주셔서 감사합니다 🙇"],
     ["잔소리 창구에 입금해주셔서 감사합니다😊 항상 영업 중이에요!"],
   ];
 
@@ -145,7 +145,7 @@ export default function CartBtn({ font }) {
             {!!purchase ? (
               <div className="flex flex-col items-center gap-y-6">
                 <QRCode
-                  className="size-32 min-w-32 min-h-32 ml-auto mr-auto"
+                  className="size-32 min-w-32 min-h-32 ml-auto mr-auto p-2 bg-white"
                   value={qrData}
                 />
                 <p className="text-center">
@@ -154,7 +154,7 @@ export default function CartBtn({ font }) {
                   아래 송금하기를 눌러주세요!
                 </p>
                 {qrData === "https://dev.jihun.io" ? (
-                  <p className="text-xs text-supernova-900">
+                  <p className="text-xs text-supernova-900 dark:text-supernova-100">
                     (데모 페이지예요! 그래도 스캔해보실래요?)
                   </p>
                 ) : (
@@ -169,7 +169,7 @@ export default function CartBtn({ font }) {
                 </Link>
                 <p className="break-keep text-center">{randomThanks}</p>
                 <hr />
-                <p className="text-center">영수증</p>
+                <p className={classNames("text-center", font)}>영 수 증</p>
                 {checkedCount > 0 && (
                   <ul className={classNames(billStyle, font)}>
                     {checkedProducts.map((product) => (
