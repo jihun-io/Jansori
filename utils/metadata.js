@@ -4,10 +4,12 @@ export function generateMetadata(title, description) {
       // Cloudflare Pages 환경
       if (process.env.CF_PAGES_BRANCH === "main") {
         // 프로덕션 배포
-        return `https://${process.env.CF_PAGES_URL}`;
+        return `https://jansori.jihun.io`;
       } else {
         // 프리뷰 배포
-        return `https://${process.env.CF_PAGES_BRANCH}.${process.env.CF_PAGES_URL}`;
+        return `https://${
+          process.env.CF_PAGES_BRANCH
+        }.${process.env.CF_PAGES_URL.replace(/^https?:\/\//, "")}`;
       }
     }
     // 로컬 개발 환경
