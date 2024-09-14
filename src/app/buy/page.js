@@ -22,7 +22,7 @@ export async function generateMetadata({ searchParams }) {
         return `https://jansori.jihun.io`;
       } else {
         // 프리뷰 배포
-        return `${process.env.CF_PAGES_URL}`;
+        return `https://dev.jansori.pages.dev`;
       }
     }
     // 로컬 개발 환경
