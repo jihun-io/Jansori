@@ -1,11 +1,25 @@
-export function generateMetadata(
-  title,
-  description,
-  currentUrl = "https://jansori.jihun.io"
-) {
+export function generateMetadata(title, description) {
+  const getMetadataBase = () => {
+    if (process.env.CF_PAGES) {
+      // Cloudflare Pages 환경
+      if (process.env.CF_PAGES_BRANCH === "main") {
+        // 프로덕션 배포
+        return `https://${process.env.CF_PAGES_URL}`;
+      } else {
+        // 프리뷰 배포
+        return `https://${process.env.CF_PAGES_BRANCH}.${process.env.CF_PAGES_URL}`;
+      }
+    }
+    // 로컬 개발 환경
+    return `http://localhost:${process.env.PORT || 3000}`;
+  };
+
+  const metadataBase = getMetadataBase();
   return {
+    metadataBase: new URL(metadataBase),
     title,
     description,
+    url: "https://jansori.jihun.io",
     icons: {
       icon: [
         { url: "/metadata/favicon.ico" },
