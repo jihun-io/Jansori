@@ -14,7 +14,10 @@ export async function GET(request) {
   let fontData;
   try {
     const fontResponse = await fetch(
-      new URL("@/app/fonts/chungjuKimsaeng.ttf", import.meta.url)
+      new URL(
+        "https://www.chungju.go.kr/site/www/images/contents/ChungjuKimSaeng.ttf",
+        import.meta.url
+      )
     );
     fontData = await fontResponse.arrayBuffer();
   } catch (error) {
