@@ -1,6 +1,8 @@
 # 잔소리 키오스크
 <img src="https://img.shields.io/badge/Next.js-000000?style=flat-square&logo=Next.js&logoColor=white"/> <img src="https://img.shields.io/badge/Tailwind CSS-06B6D4?style=flat-square&logo=Tailwind CSS&logoColor=white"/>
 
+![image](https://github.com/user-attachments/assets/ed2a53dd-fa44-4cf0-9f1c-415d482d3af8)
+
 - 보러 가기: https://jansori.jihun.io
 
 ## 프로젝트 시작 취지
