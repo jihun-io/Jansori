@@ -21,7 +21,7 @@ export async function GET(request) {
   const username = searchParams.get("name") || "저";
 
   const baseUrl = getUrl();
-  const fontUrl = `${baseUrl}/fonts/chungjukimsaeng.ttf`;
+  const fontUrl = `${baseUrl}/fonts/chungjukimsaeng1.ttf`;
 
   let fontData;
   try {
@@ -69,7 +69,7 @@ export async function GET(request) {
         ? [
             {
               name: "chungjuKimsaeng",
-              data: fontData,
+              data: await fontData,
               style: "normal",
             },
           ]
