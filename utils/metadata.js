@@ -7,7 +7,7 @@ export function generateMetadata(title, description) {
         return `https://jansori.jihun.io`;
       } else {
         // 프리뷰 배포
-        return `https://${process.env.CF_PAGES_URL}`;
+        return `${process.env.CF_PAGES_URL}`;
       }
     }
     // 로컬 개발 환경
