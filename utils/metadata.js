@@ -81,22 +81,5 @@ export function generateMetadata(
         },
       ],
     },
-    openGraph: {
-      type: "website",
-      url: currentUrl,
-      title,
-      description,
-      images: [
-        {
-          url: "/metadata/jansori-card.png",
-        },
-      ],
-    },
-    twitter: {
-      card: "summary_large_image",
-      title,
-      description,
-      images: ["/metadata/jansori-card.png"],
-    },
   };
 }
