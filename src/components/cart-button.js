@@ -153,15 +153,23 @@ export default function CartBtn({ font }) {
                   <br />
                   아래 송금하기를 눌러주세요!
                 </p>
+                {qrData === "https://dev.jihun.io" ? (
+                  <p className="text-xs text-supernova-900">
+                    (데모 페이지예요! 그래도 스캔해보실래요?)
+                  </p>
+                ) : (
+                  <></>
+                )}
                 <Link
                   className=" dark:text-black size-fit ml-auto mr-auto block font-bold transition-colors rounded-lg px-6 py-2 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
-                  href={kakaoUrl}
+                  href={qrData}
                   target="_blank"
                 >
                   송금하기
                 </Link>
                 <p className="break-keep text-center">{randomThanks}</p>
-                <p className="text-center pt-8">영수증</p>
+                <hr />
+                <p className="text-center">영수증</p>
                 {checkedCount > 0 && (
                   <ul className={classNames(billStyle, font)}>
                     {checkedProducts.map((product) => (
