@@ -138,11 +138,10 @@ export default function CreateDetails() {
       ) : (
         <main className="mx-6 flex flex-col items-center justify-center gap-16">
           <section className="flex flex-col items-center gap-4">
-            <Image
+            <img
               src={`/api/og?name=${username}`}
-              width={1200}
-              height={630}
               alt={`${username}에게 잔소리를 해주세요! (최소 49,000원)`}
+              className="max-h-96"
             />
             <h2 className="text-center font-bold text-2xl">생성 완료!</h2>
             <input
