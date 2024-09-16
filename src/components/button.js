@@ -14,7 +14,7 @@ const Button = ({
     default:
       "bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 dark:text-black hover:text-supernova-50 active:text-supernova-50",
     outline:
-      "border-solid  border-supernova-700 bg-supernova-50 text-supernova-950 hover:bg-supernova-200 active:bg-supernova-300",
+      "border-2 border-supernova-500 text-supernova-950 hover:bg-supernova-400 active:bg-supernova-300 dark:text-white dark:hover:bg-supernova-500 dark:active:bg-supernova-600",
   };
 
   const buttonClasses = classNames(

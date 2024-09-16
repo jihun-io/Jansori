@@ -61,7 +61,7 @@ export default function CreateDetails() {
                 이름
               </label>
               <input
-                className="border-2 rounded-lg px-6 py-2 w-full bg-gray-50 dark:bg-slate-900"
+                className="border-2 rounded-lg px-6 py-2 w-full bg-gray-50 dark:bg-[--background]"
                 type="text"
                 id="username"
                 name="username"
@@ -74,7 +74,7 @@ export default function CreateDetails() {
                 카카오페이 송금 링크
               </label>
               <input
-                className="border-2 rounded-lg px-6 py-2  w-full bg-gray-50 dark:bg-slate-900"
+                className="border-2 rounded-lg px-6 py-2  w-full bg-gray-50 dark:bg-[--background]"
                 type="url"
                 id="kakaopay"
                 name="kakaopay"
