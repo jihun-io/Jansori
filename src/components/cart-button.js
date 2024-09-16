@@ -15,6 +15,34 @@ import { useToHexValue } from "../../utils/toHexValue";
 
 const billStyle = "flex flex-col gap-3 max-w-96";
 
+async function billShare(jansoriee, items, url) {
+  const receiver = jansoriee || "당신";
+  const checkedProducts = items || [];
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        "X-Jansoriee": receiver,
+      },
+      body: JSON.stringify({ items: checkedProducts }),
+    });
+    const blob = await response.blob();
+
+    const file = new File([blob], "bill.jpg", { type: blob.type });
+
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        files: [file],
+        title: "잔소리 영수증",
+        text: `${receiver}님! 여기 잔소리 영수증이에요!`,
+      });
+    }
+  } catch (error) {
+    console.error("이미지 공유 오류:", error);
+  }
+}
+
 export default function CartBtn({ font }) {
   const [isOpen, setIsOpen] = useState(false);
   const [kakaoUrl, setKakaoUrl] = useState("");
@@ -27,6 +55,7 @@ export default function CartBtn({ font }) {
   const searchParams = useSearchParams();
   const { checkedItems, getCheckedProducts } = useProduct();
 
+  const jansoriee = searchParams.get("name");
   const token = searchParams.get("token");
 
   const openModal = () => setIsOpen(true);
@@ -71,8 +100,12 @@ export default function CartBtn({ font }) {
   }, [checkedProducts, token]);
 
   const thanks = [
-    ["잔소리의 품격, 현금으로 증명해주셔서 감사합니다 🙇"],
-    ["잔소리 창구에 입금해주셔서 감사합니다😊 항상 영업 중이에요!"],
+    [
+      `잔소리의 품격, 현금으로 증명해주셔서 감사합니다 🙇 \n- ${jansoriee} 배상`,
+    ],
+    [
+      `${jansoriee}의 잔소리 창구에 입금해주셔서 감사합니다😊 \n항상 영업 중이에요!`,
+    ],
   ];
 
   const random = Math.floor(Math.random() * thanks.length);
@@ -165,9 +198,11 @@ export default function CartBtn({ font }) {
                   href={qrData}
                   target="_blank"
                 >
-                  송금하기
+                  카카오페이로 송금하기
                 </Link>
-                <p className="break-keep text-center">{randomThanks}</p>
+                <p className="break-keep text-center whitespace-pre-line">
+                  {randomThanks}
+                </p>
                 <hr />
                 <p className={classNames("text-center", font)}>영 수 증</p>
                 {checkedCount > 0 && (
@@ -194,6 +229,14 @@ export default function CartBtn({ font }) {
                     </li>
                   </ul>
                 )}
+                <Button
+                  variant="outline"
+                  onClick={() =>
+                    billShare(jansoriee, checkedProducts, "/api/bill")
+                  }
+                >
+                  영수증 공유하기
+                </Button>
                 <div className="flex flex-row flex-wrap justify-center gap-5">
                   <Link
                     className=" dark:text-black block font-bold transition-colors rounded-lg px-6 py-2 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
