@@ -48,11 +48,24 @@ export async function GET(request) {
           fontFamily: fontData ? "chungjuKimsaeng" : "system-ui",
         }}
       >
+        <img
+          src={`${baseUrl}/images/holiday-kakao.png`}
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            objectFit: "cover",
+            filter: "blur(10px) brightness(1.2)",
+          }}
+        />
         <p
           style={{
             display: "flex",
             flexDirection: "column",
             lineHeight: "1.4",
+            textShadow: "0px 0px 10px rgb(255,219,63, .9)",
           }}
         >
           <span style={{ display: "block" }}>{username}에게</span>
