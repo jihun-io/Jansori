@@ -20,9 +20,9 @@ const getUrl = () => {
 export async function POST(request) {
   const baseUrl = getUrl();
   const fontUrl = `${baseUrl}/fonts/Galmuri14.ttf`;
-  const jansoriee = request.headers.get("x-jansoriee");
 
   const data = await request.json();
+  const jansoriee = data["jansoriee"];
   const checkedProducts = data["items"];
   let fontData;
   try {

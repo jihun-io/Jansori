@@ -23,9 +23,8 @@ async function billShare(jansoriee, items, url) {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "X-Jansoriee": receiver,
       },
-      body: JSON.stringify({ items: checkedProducts }),
+      body: JSON.stringify({ jansoriee: receiver, items: checkedProducts }),
     });
     const blob = await response.blob();
 
