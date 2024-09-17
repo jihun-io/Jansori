@@ -57,7 +57,7 @@ export async function GET(request) {
             width: "100%",
             height: "100%",
             objectFit: "cover",
-            filter: "blur(10px)",
+            filter: "blur(10px) brightness(1.2)",
           }}
         />
         <p
