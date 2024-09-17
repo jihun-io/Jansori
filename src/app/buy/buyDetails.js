@@ -96,6 +96,7 @@ export default function BuyDetails({ token, name }) {
         <Link
           className="block w-fit ml-auto mr-auto dark:text-black font-bold transition-colors rounded-lg px-6 py-2 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
           href="/create"
+          scroll={true}
         >
           나만의 잔소리 키오스크 만들러 가기!
         </Link>
