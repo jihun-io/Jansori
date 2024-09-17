@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { useRef } from "react";
 
 import Button from "@/components/button.js";
 import KakaoShare from "@/components/kakaoShare";
@@ -42,6 +43,39 @@ export default function CreateDetails() {
       alert("복사되었습니다!");
     } catch (err) {
       console.error("Failed to copy: ", err);
+    }
+  };
+
+  const scrollRef = useRef(null);
+  const [scrollIndex, setScrollIndex] = useState(0);
+
+  const scrollLeft = () => {
+    if (scrollIndex > 0) {
+      const next = scrollIndex - 1;
+      setScrollIndex(next);
+      console.log(scrollRef.current.children[next]);
+      scrollRef.current.children[next].scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
+    }
+  };
+
+  const scrollRight = () => {
+    if (
+      scrollRef.current &&
+      scrollIndex < scrollRef.current.children.length - 1
+    ) {
+      const next = scrollIndex + 1;
+      setScrollIndex(next);
+      console.log(scrollRef.current.children[next]);
+
+      scrollRef.current.children[next].scrollIntoView({
+        behavior: "smooth",
+        block: "nearest",
+        inline: "center",
+      });
     }
   };
 
@@ -87,8 +121,95 @@ export default function CreateDetails() {
               <Button type="submit">링크 만들기</Button>
             </form>
           </section>
-          <section>
+          <section className=" flex flex-col items-start w-full">
             <h3 className="text-xl font-bold">만드는 법</h3>
+            <div className="relative w-full">
+              <div className="flex flex-row isolate justify-start md:justify-center overflow-hidden w-full h-fit snap-x snap-mandatory scrollbar-hide">
+                <ul
+                  className="flex flex-row w-fit justify-start md:justify-center h-fit snap-x gap-x-6 snap-mandatory scrollbar-hide pl-[320px] pr-[320px] md:pl-0 md:pr-0"
+                  ref={scrollRef}
+                >
+                  <li className="block w-[50vw] md:w-[20vw] lg:w-[20vw] max-w-[15rem]  aspect-[320/630] md:ml-0 relative flex-shrink-0">
+                    <Image
+                      src={"/images/how-to-create-1.png"}
+                      fill
+                      alt="카카오톡 더보기 탭에서 카카오페이 송금 버튼을 누릅니다."
+                      className="snap-center"
+                    />
+                  </li>
+                  <li className="block w-[50vw] md:w-[20vw] lg:w-[20vw] max-w-[15rem] aspect-[320/630] relative flex-shrink-0">
+                    <Image
+                      src={"/images/how-to-create-2.png"}
+                      fill
+                      alt="계좌송금 화면에서 하단의 QR 버튼을 누릅니다."
+                      className="snap-center"
+                    />
+                  </li>
+                  <li className="block w-[50vw] md:w-[20vw] lg:w-[20vw] max-w-[15rem] aspect-[320/630] md:mr-0 relative flex-shrink-0">
+                    <Image
+                      src={"/images/how-to-create-3.png"}
+                      fill
+                      alt="QR 코드 스캔 화면에서 하단의 나의 송금 버튼을 누릅니다."
+                      className="snap-center"
+                    />
+                  </li>
+                  <li className="block w-[50vw] md:w-[20vw] lg:w-[20vw] max-w-[15rem] aspect-[320/630] md:mr-0 relative flex-shrink-0">
+                    <Image
+                      src={"/images/how-to-create-4.png"}
+                      fill
+                      alt="송금받기 화면에서 링크 복사 버튼을 누릅니다."
+                      className="snap-center"
+                    />
+                  </li>
+                </ul>
+              </div>
+              <ul className="absolute w-full flex flex-row justify-between top-1/2 left-0 right-0 -translate-y-1/2 z-10 md:hidden pointer-events-none">
+                <li>
+                  <button
+                    className="border-2 dark:border-armadillo-200 p-3 bg-white hover:bg-gray-100 dark:bg-armadillo-400 dark:hover:bg-armadillo-200 transition-all shadow-xl rounded-full relative pointer-events-auto"
+                    onClick={scrollLeft}
+                    style={{ opacity: scrollIndex === 0 ? 0 : 1 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="3"
+                      stroke="currentColor"
+                      class="size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="M15.75 19.5 8.25 12l7.5-7.5"
+                      />
+                    </svg>
+                  </button>
+                </li>
+                <li>
+                  <button
+                    className="border-2 dark:border-armadillo-200 p-3 bg-white hover:bg-gray-100 dark:bg-armadillo-400 dark:hover:bg-armadillo-200 transition-all shadow-xl rounded-full relative pointer-events-auto"
+                    onClick={scrollRight}
+                    style={{ opacity: scrollIndex === 3 ? 0 : 1 }}
+                  >
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke-width="3"
+                      stroke="currentColor"
+                      class="size-6"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        d="m8.25 4.5 7.5 7.5-7.5 7.5"
+                      />
+                    </svg>
+                  </button>
+                </li>
+              </ul>
+            </div>
             <ol className="flex flex-col gap-y-2 mt-2 mb-6 list-decimal ml-5">
               <li>
                 카카오톡의 &apos;
@@ -124,12 +245,18 @@ export default function CreateDetails() {
             <h3 className="text-xl font-bold">참고 사항</h3>
             <ol className="flex flex-col gap-y-2 mt-2 mb-6 list-decimal ml-5">
               <li>
-                잔소리 키오스크는 단순히 카카오페이 송금하기 링크를 중개하는
-                서비스이며, 이용자의 개인정보 및 민감정보는{" "}
-                <span className="font-bold">절대</span> 수집되지 않습니다.
+                잔소리 키오스크는 단순히 카카오페이 송금하기 링크를 중개하는 웹
+                페이지이며, 이용자의 개인정보 및 민감정보는{" "}
+                <span className="font-bold">절대</span> 수집되지 않습니다.{" "}
+                <Link
+                  className="underline text-blue-500 dark:text-blue-400"
+                  href="https://github.com/jihun-io/Jansori"
+                >
+                  GitHub에서 자세히 알아보기...
+                </Link>
               </li>
               <li>
-                잔소리 키오스크는 카카오페이와 무관하며, 서비스 이용자에게는
+                잔소리 키오스크는 카카오페이와 무관하며, 웹 페이지 이용자에게는
                 수수료를 포함한 이용 요금이 부과되지 않습니다.
               </li>
             </ol>
