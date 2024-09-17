@@ -3,8 +3,8 @@ import { ImageResponse } from "next/og";
 export const runtime = "edge";
 
 export const size = {
-  width: 1200,
-  height: 630,
+  width: 600,
+  height: 315,
 };
 
 const getUrl = () => {
@@ -21,7 +21,7 @@ export async function GET(request) {
   const username = searchParams.get("name") || "저";
 
   const baseUrl = getUrl();
-  const fontUrl = `${baseUrl}/fonts/chungjukimsaeng1.ttf`;
+  const fontUrl = `https://github.com/jihun-io/Jansori/raw/refs/heads/main/public/fonts/chungjukimsaeng1.ttf`;
 
   let fontData;
   try {
@@ -36,7 +36,7 @@ export async function GET(request) {
     (
       <div
         style={{
-          fontSize: 96,
+          fontSize: 48,
           width: "100%",
           height: "100%",
           display: "flex",
