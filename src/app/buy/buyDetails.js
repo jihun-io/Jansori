@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useSearchParams } from "next/navigation";
 import { useProduct } from "/contexts/ProductContext";
 import ProductItem from "@/components/product.js";
@@ -81,6 +83,22 @@ export default function BuyDetails({ token, name }) {
         <ul className="flex flex-col items-center gap-6">
           {renderProductItems(products.marriedProducts)}
         </ul>
+      </section>
+      <section className="w-full pb-4">
+        <h2 className="sr-only">나만의 잔소리 키오스크 만들기</h2>
+        <p className="text-3xl font-bold text-center my-4">
+          잔소리를 구매하고 싶지 않으신가요?
+        </p>
+        <p className="text-center pb-4">
+          그렇다면 직접 잔소리를 판매해보는 건 어떠세요? <br />
+          금방 만들어요! 한번 만들어서 공유해보세요!
+        </p>
+        <Link
+          className="block w-fit ml-auto mr-auto dark:text-black font-bold transition-colors rounded-lg px-6 py-2 bg-supernova-500 hover:bg-supernova-600 active:bg-supernova-700 hover:text-supernova-50 active:text-supernova-50"
+          href="/create"
+        >
+          나만의 잔소리 키오스크 만들러 가기!
+        </Link>
       </section>
     </main>
   );
