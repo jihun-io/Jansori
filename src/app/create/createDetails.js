@@ -53,7 +53,6 @@ export default function CreateDetails() {
     if (scrollIndex > 0) {
       const next = scrollIndex - 1;
       setScrollIndex(next);
-      console.log(scrollRef.current.children[next]);
       scrollRef.current.children[next].scrollIntoView({
         behavior: "smooth",
         block: "nearest",
@@ -69,7 +68,6 @@ export default function CreateDetails() {
     ) {
       const next = scrollIndex + 1;
       setScrollIndex(next);
-      console.log(scrollRef.current.children[next]);
 
       scrollRef.current.children[next].scrollIntoView({
         behavior: "smooth",
