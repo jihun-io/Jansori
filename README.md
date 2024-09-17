@@ -6,7 +6,7 @@
 - 보러 가기: https://jansori.jihun.io
 
 ## 프로젝트 시작 취지
-언젠가부터 명절마다 인터넷에 도는 ['잔소리 가격표'](https://www.google.com/search?sca_esv=28a657a2e876b5fc&sxsrf=ADLYWIJr_yqGeNUp9b5izKMMdko_jPBzxw:1726347662988&q=%EC%9E%94%EC%86%8C%EB%A6%AC+%EA%B0%80%EA%B2%A9%ED%91%9C&udm=2&fbs=AEQNm0DmKhoYsBCHazhZSCWuALW8l8eUs1i3TeMYPF4tXSfZ9zKNKSjpwusJM2dYWg4btGKvTs8msUkFt41RLL2EsYFXj1HJ-6Tz3zY-OaA8p5OIwItbocDk4qq86p8fJJCtbe3_2vimBnUgRwZhItF5qoYQaFE2UOeb1HzBnvjMvmHOhQgvZ1W__w-vNv-qb6FIYxwRlN9p&sa=X&ved=2ahUKEwiThdiZqsOIAxXfZfUHHXTmOlsQtKgLegQIDxAB&biw=1372&bih=931&dpr=2)를 보고서, 잔소리 가격표를 키오스크로 만들면 재밌을 것 같다는 영감을 받았습니다.
+언젠가부터 명절마다 인터넷에 도는 ['잔소리 가격표'](https://www.google.com/search?sca_esv=28a657a2e876b5fc&sxsrf=ADLYWIJr_yqGeNUp9b5izKMMdko_jPBzxw:1726347662988&q=%EC%9E%94%EC%86%8C%EB%A6%AC+%EA%B0%80%EA%B2%A9%ED%91%9C&udm=2&fbs=AEQNm0DmKhoYsBCHazhZSCWuALW8l8eUs1i3TeMYPF4tXSfZ9zKNKSjpwusJM2dYWg4btGKvTs8msUkFt41RLL2EsYFXj1HJ-6Tz3zY-OaA8p5OIwItbocDk4qq86p8fJJCtbe3_2vimBnUgRwZhItF5qoYQaFE2UOeb1HzBnvjMvmHOhQgvZ1W__w-vNv-qb6FIYxwRlN9p&sa=X&ved=2ahUKEwiThdiZqsOIAxXfZfUHHXTmOlsQtKgLegQIDxAB&biw=1372&bih=931&dpr=2)를 보고서, 잔소리 가격표를 키오스크로 만들면 좋을 것 같다는 영감을 받았습니다.
 
 명절은 누구나 즐겁고 평안해야 한다고 생각합니다. 그렇지만 매해 명절마다 소셜 미디어를 들어가 보면 가족이나 친척 간 갈등이 인기 글에 올라오고, 명절에 행복보다 아픔을 갖는 사람들을 제 주변에서도 종종 보곤 했습니다. 즐거운 명절 날에 고통받는 모든 사람들을 위해서 프로젝트를 시작했지만, 프로젝트를 진행하면서 "과연 잔소리 키오스크가 진정한 명절 갈등 해법일 수 있을까?"라는 솔직한 생각이 들었습니다. 
 
