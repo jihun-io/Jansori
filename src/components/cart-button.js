@@ -149,7 +149,7 @@ export default function CartBtn({ font }) {
         <dialog className="text-[1rem] fixed w-dvw h-dvh inset-0 bg-white dark:bg-armadillo-800 bg-opacity-50 dark:bg-opacity-30 flex items-center justify-center overflow-hidden z-50 transition-opacity">
           <div
             id="modalContent"
-            className="bg-white dark:bg-armadillo-600 dark:text-armadillo-50 w-4/5 sm:w-3/5 md:w-2/5 px-8 py-8 rounded-lg flex flex-col justify-start gap-y-4 shadow-md relative max-h-[80%] overflow-scroll scrollbar-hide"
+            className="bg-white dark:bg-armadillo-600 dark:text-armadillo-50 w-4/5 sm:w-3/5 md:w-2/5 px-8 py-8 rounded-lg flex flex-col justify-start gap-y-4 shadow-md relative max-h-[80%] overflow-auto"
           >
             <header className="flex flex-row ">
               <h2 className="w-full text-center font-bold px-8 text-xl">
@@ -186,7 +186,7 @@ export default function CartBtn({ font }) {
                   아래 송금하기를 눌러주세요!
                 </p>
                 {qrData === "https://dev.jihun.io" ? (
-                  <p className="text-xs text-supernova-900 dark:text-supernova-100">
+                  <p className="text-xs text-supernova-900 dark:text-supernova-100 text-center">
                     (데모 페이지예요! 그래도 스캔해보실래요?)
                   </p>
                 ) : (
