@@ -1,9 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
-export default function Home() {
-  const demoUrl = `/buy?name=jihun&token=https://dev.jihun.io`;
+const demoUrl = `/buy?name=jihun&token=https://dev.jihun.io`;
 
+export default function Home() {
   return (
     <main className="flex flex-col gap-16 justify-start items-center mx-6">
       <section className="introduction flex flex-col items-start w-full max-w-3xl">
