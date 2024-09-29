@@ -34,7 +34,7 @@ export default function Home() {
           src={"/images/jansorijjal.jpg"}
           width={594}
           height={598}
-          className="ml-auto mr-auto"
+          className="ml-auto mr-auto max-w-full h-auto"
           alt="일가친척이 웃으며 잔소리를 하고 있는 모습"
         />
         <p className="text-2xl my-4 font-bold">
